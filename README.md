@@ -27,4 +27,15 @@ The respective calendar for each piece of equipment will show:
     ```bash
    pip install Flask Flask-SQLAlchemy os Flask-Migrate
    ```
-  
+3. Download the following folders that include HTML files that use Javascript and Jinja2 templating to convert Python objects into JSON format
+   *app.py
+   *template
+   *migrations
+4. Run the following code to create the Database tables:
+   ```bash from app import db, app
+with app.app_context():
+    db.create_all()
+exit()
+```
+
+   
