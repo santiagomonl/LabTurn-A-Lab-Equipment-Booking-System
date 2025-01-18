@@ -20,7 +20,7 @@ The respective calendar for each piece of equipment will show:
 *The User's name
 *The list of reservation
 
-# Techincal Instruction
+# Technical Instruction
 ## If deployed locally
 1. Need to install python on your computer
 2. Need to install the following libraries
