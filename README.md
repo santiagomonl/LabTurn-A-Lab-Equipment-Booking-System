@@ -32,10 +32,11 @@ The respective calendar for each piece of equipment will show:
    *template
    *migrations
 4. Run the following code to create the Database tables:
-   ```bash from app import db, app
-with app.app_context():
-    db.create_all()
-exit()
-```
+   ```bash
+   from app import db, app
+   with app.app_context():
+       db.create_all()
+   exit()
+   ```
 
    
