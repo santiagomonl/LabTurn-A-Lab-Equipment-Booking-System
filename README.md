@@ -38,5 +38,9 @@ The respective calendar for each piece of equipment will show:
        db.create_all()
    exit()
    ```
+5. Finally run the app
+   ```bash
+   python app.py
+   ```
 
    
