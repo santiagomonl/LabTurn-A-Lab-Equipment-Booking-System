@@ -21,7 +21,7 @@ The respective calendar for each piece of equipment will show:
 *The list of reservation
 
 # Technical Instruction
-## If deployed locally
+## If run locally
 1. Need to install python on your computer
 2. Need to install the following libraries
     ```bash
@@ -43,3 +43,15 @@ The respective calendar for each piece of equipment will show:
    python app.py
    ```
 6. Finally, open the address shown in the terminal Ctrl+Click
+
+## If accessed online
+Assuming local functionality is used as a test to check the performance of the booking system we can continue to deploy the program online
+
+1. Download and install the Heroku CLI
+2. Login to Heroku
+3. Create the new app
+4. Set up the database and provide a DATABASE_URL environment variable.
+5. Initialize the Database on Heroku
+6. Push Your Code to Heroku
+7. Deploy the app to Heroku
+8. Finally, check the app interface and functionality using the URL provided in Heruko
