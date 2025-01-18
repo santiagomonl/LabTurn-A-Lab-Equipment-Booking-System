@@ -50,8 +50,21 @@ Assuming local functionality is used as a test to check the performance of the b
 1. Download and install the Heroku CLI
 2. Login to Heroku
 3. Create the new app
-4. Set up the database and provide a DATABASE_URL environment variable.
+4. Set up the free online database (PostgreSQL) and provide a DATABASE_URL environment variable.
 5. Initialize the Database on Heroku
 6. Push Your Code to Heroku
 7. Deploy the app to Heroku
 8. Finally, check the app interface and functionality using the URL provided in Heruko
+
+Heroku will generate a URL that can be access on any computer and will allow remote access to book the lab equipment
+
+# Future Enhancements
+*Conflict Prevention: Automatically checks for overlapping bookings and notifies users of conflicts.
+
+*Booking Management Improvement: View, update, or cancel reservations effortlessly.
+
+*Integration with email notifications for booking confirmations and reminders.
+
+*Support for mobile-friendly interfaces.
+
+
