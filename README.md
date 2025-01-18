@@ -38,9 +38,8 @@ The respective calendar for each piece of equipment will show:
        db.create_all()
    exit()
    ```
-5. Finally run the app
+5. Run the app
    ```bash
    python app.py
    ```
-
-   
+6. Finally, open the address shown in the terminal Ctrl+Click
