@@ -9,9 +9,22 @@ The Lab Equipment Booking System is a Python-based web application designed to s
 
 *Flexible Scheduling: Reserve equipment for specific dates and times.
 
-*Conflict Prevention: Automatically checks for overlapping bookings and notifies users of conflicts.
-
 *Booking Management: View, update, or cancel reservations effortlessly.
 
-*Secure Access: User authentication ensures that only authorized personnel can make reservations.
+## Input
+The user-friendly interface permits easy booking by clicking on the desired hours to book. Additionally, each piece of equipment will show a different calendar that can be modified to reserve the desired time slots.
 
+## Output
+The respective calendar for each piece of equipment will show:
+*The hours reserved
+*The User's name
+*The list of reservation
+
+# Techincal Instruction
+## If deployed locally
+1. Need to install python on your computer
+2. Need to install the following libraries
+    ```bash
+   pip install Flask Flask-SQLAlchemy os Flask-Migrate
+   ```
+  
