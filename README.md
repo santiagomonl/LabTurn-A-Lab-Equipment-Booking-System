@@ -16,9 +16,9 @@ The user-friendly interface permits easy booking by clicking on the desired hour
 
 ## Output
 The respective calendar for each piece of equipment will show:
-*The hours reserved
-*The User's name
-*The list of reservation
+- The hours reserved
+- The User's name
+- The list of reservation
 
 # Technical Instruction
 ## If run locally
@@ -59,12 +59,12 @@ Assuming local functionality is used as a test to check the performance of the b
 Heroku will generate a URL that can be access on any computer and will allow remote access to book the lab equipment
 
 # Future Enhancements
-*Conflict Prevention: Automatically checks for overlapping bookings and notifies users of conflicts.
+- Conflict Prevention: Automatically checks for overlapping bookings and notifies users of conflicts.
 
-*Booking Management Improvement: View, update, or cancel reservations effortlessly.
+- Booking Management Improvement: View, update, or cancel reservations effortlessly.
 
-*Integration with email notifications for booking confirmations and reminders.
+- Integration with email notifications for booking confirmations and reminders.
 
-*Support for mobile-friendly interfaces.
+- Support for mobile-friendly interfaces.
 
 
