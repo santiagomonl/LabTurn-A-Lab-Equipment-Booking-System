@@ -56,7 +56,9 @@ Assuming local functionality is used as a test to check the performance of the b
 7. Deploy the app to Heroku
 8. Finally, check the app interface and functionality using the URL provided in Heruko
 
-Heroku will generate a URL that can be access on any computer and will allow remote access to book the lab equipment
+Heroku will generate a URL that can be access on any computer and will allow remote access to book the lab equipment.
+
+This intuitive online interface does not need any installation or setting on your computer. Simply access the website and the interface will load in your browser for your to start booking your lab equipment.
 
 # Future Enhancements
 - Conflict Prevention: Automatically checks for overlapping bookings and notifies users of conflicts.
