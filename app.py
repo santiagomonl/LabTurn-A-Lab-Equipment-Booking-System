@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # Database Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://santiagoml:t6cP6VgnMG8Xa9l8yNozRxKVF9EtTGcP@dpg-cuf6i9tumphs73aunut0-a/labturn_database')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://santiagoml:t6cP6VgnMG8Xa9l8yNozRxKVF9EtTGcP@dpg-cuf6i9tumphs73aunut0-a.frankfurt-postgres.render.com/labturn_database')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -89,6 +89,29 @@ def get_available_time_slots():
         time_slots.append({'start_time': start_time, 'end_time': end_time})
 
     return time_slots
+
+# Temporary route to run migrations
+@app.route('/run-migrations')
+def run_migrations():
+    try:
+        from flask_migrate import upgrade
+        upgrade()
+        return "Migrations applied successfully!"
+    except Exception as e:
+        app.logger.error(f"Error applying migrations: {e}")
+        return f"Error applying migrations: {e}", 500
+
+# Create sample data
+@app.before_request
+def create_sample_data():
+    if not Equipment.query.first():
+        sample_equipment = [
+            Equipment(name='Microscope', is_available=True),
+            Equipment(name='Centrifuge', is_available=False),
+            Equipment(name='Spectrophotometer', is_available=True)
+        ]
+        db.session.bulk_save_objects(sample_equipment)
+        db.session.commit()
 
 # Run the Application
 if __name__ == '__main__':

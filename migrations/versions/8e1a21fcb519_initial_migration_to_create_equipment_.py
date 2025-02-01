@@ -1,8 +1,8 @@
 """Initial migration to create equipment and reservation tables
 
-Revision ID: 87bde7d4bb11
+Revision ID: 8e1a21fcb519
 Revises: 
-Create Date: 2025-02-01 22:47:25.342047
+Create Date: 2025-02-02 00:35:28.016997
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '87bde7d4bb11'
+revision = '8e1a21fcb519'
 down_revision = None
 branch_labels = None
 depends_on = None
