@@ -74,15 +74,6 @@ def equipment_page(equipment_id):
         time_slots=available_time_slots
     )
 
-@app.route('/run-migrations')
-def run_migrations():
-    try:
-        from flask_migrate import upgrade
-        upgrade()
-        return "Migrations applied successfully!"
-    except Exception as e:
-        app.logger.error(f"Error applying migrations: {e}")
-        return f"Error applying migrations: {e}", 500
 
 def get_available_time_slots():
     """
