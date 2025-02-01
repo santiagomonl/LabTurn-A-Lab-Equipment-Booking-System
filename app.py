@@ -106,9 +106,9 @@ def get_available_time_slots():
 def create_sample_data():
     if not Equipment.query.first():
         sample_equipment = [
-            Equipment(name='Microscope', is_available=True),
-            Equipment(name='Centrifuge', is_available=False),
-            Equipment(name='Spectrophotometer', is_available=True)
+            Equipment(name='Confocal Microscope', is_available=True),
+            Equipment(name='Scanner Microscope', is_available=True),
+            Equipment(name='Biohood', is_available=True)
         ]
         db.session.bulk_save_objects(sample_equipment)
         db.session.commit()
