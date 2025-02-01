@@ -1,0 +1,53 @@
+<p>Equipment: {{ equipment }}</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Equipment List -->
+    <h2>Equipment</h2>
+    <ul>
+        {% for item in equipment %}
+            <li>{{ item.name }}
+                <a href="{{ url_for('delete_equipment', equipment_id=item.id) }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Add New Equipment -->
+    <h3>Add New Equipment</h3>
+    <form action="{{ url_for('add_equipment') }}" method="POST">
+        <label for="name">Equipment Name:</label>
+        <input type="text" name="name" id="name" required>
+        <button type="submit">Add Equipment</button>
+    </form>
+
+    <!-- Reservations List -->
+    <h2>Reservations</h2>
+    <ul>
+        {% for reservation in reservations %}
+            <li>{{ reservation.user_name }} reserved {{ reservation.equipment.name }} on {{ reservation.date }}
+                <a href="{{ url_for('cancel_reservation', reservation_id=reservation.id) }}">Cancel</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
