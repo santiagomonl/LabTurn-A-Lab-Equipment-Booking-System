@@ -74,6 +74,11 @@ def equipment_page(equipment_id):
         time_slots=available_time_slots
     )
 
+@app.route('/run-migrations')
+def run_migrations():
+    from flask_migrate import upgrade
+    upgrade()
+    return "Migrations applied successfully!"
 
 def get_available_time_slots():
     """
