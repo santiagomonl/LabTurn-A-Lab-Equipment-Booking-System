@@ -43,6 +43,7 @@ def equipment_page(equipment_id):
     # Format reservations for FullCalendar
     formatted_reservations = [
         {
+            'id': res.id,
             'title': f"{res.user_name}",
             'start': f"{res.date}T{res.start_time}",
             'end': f"{res.date}T{res.end_time}"
