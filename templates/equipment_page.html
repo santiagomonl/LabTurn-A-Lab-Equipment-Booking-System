@@ -36,6 +36,9 @@
 
 <script>
     $(document).ready(function() {
+        // Log the reservations data to verify it is correctly passed
+        console.log("Reservations data:", {{ reservations|tojson }});
+
         // Initialize the calendar
         $('#calendar').fullCalendar({
             events: {{ reservations|tojson }},

@@ -75,6 +75,7 @@ def equipment_page(equipment_id):
         time_slots=available_time_slots
     )
 
+
 @app.route('/delete_reservation/<int:reservation_id>', methods=['POST'])
 def delete_reservation(reservation_id):
     reservation = Reservation.query.get_or_404(reservation_id)
