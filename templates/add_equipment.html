@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Equipment</title>
+</head>
+<body>
+    <h1>Add New Equipment</h1>
+    <form method="POST" action="{{ url_for('add_equipment') }}">
+        <label for="name">Equipment Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="is_available">Is Available:</label>
+        <input type="checkbox" id="is_available" name="is_available">
+        <br>
+        <button type="submit">Add Equipment</button>
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}">Back to Equipment List</a>
+</body>
+</html>

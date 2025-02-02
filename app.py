@@ -74,6 +74,18 @@ def equipment_page(equipment_id):
         time_slots=available_time_slots
     )
 
+@app.route('/add-equipment', methods=['GET', 'POST'])
+def add_equipment():
+    if request.method == 'POST':
+        name = request.form['name']
+        is_available = request.form.get('is_available') == 'on'
+        new_equipment = Equipment(name=name, is_available=is_available)
+        db.session.add(new_equipment)
+        db.session.commit()
+        flash('New equipment added successfully!', 'success')
+        return redirect(url_for('index'))
+    return render_template('add_equipment.html')
+
 
 def get_available_time_slots():
     """
