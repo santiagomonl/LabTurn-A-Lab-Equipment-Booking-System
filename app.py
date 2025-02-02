@@ -96,6 +96,13 @@ def add_equipment():
         return redirect(url_for('index'))
     return render_template('add_equipment.html')
 
+@app.route('/delete_equipment/<int:equipment_id>', methods=['POST'])
+def delete_equipment(equipment_id):
+    equipment = Equipment.query.get_or_404(equipment_id)
+    db.session.delete(equipment)
+    db.session.commit()
+    app.logger.info(f"Deleted equipment with ID: {equipment_id}")  # Add logging
+    return jsonify({'success': True})
 
 def get_available_time_slots():
     """

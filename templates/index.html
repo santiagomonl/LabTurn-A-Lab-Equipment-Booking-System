@@ -12,10 +12,13 @@
 <ul class="list-group">
     {% for item in equipment %}
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="{{ url_for('equipment_page', equipment_id=item.id) }}">{{ item.name }}</a>
-            <span class="badge badge-{{ 'success' if item.is_available else 'danger' }}">
-                {{ 'Available' if item.is_available else 'Not Available' }}
-            </span>
+            <div>
+                <a href="{{ url_for('equipment_page', equipment_id=item.id) }}">{{ item.name }}</a>
+                <span class="badge badge-{{ 'success' if item.is_available else 'danger' }}">
+                    {{ 'Available' if item.is_available else 'Not Available' }}
+                </span>
+            </div>
+            <button class="btn btn-danger btn-sm delete-equipment" data-id="{{ item.id }}">Delete</button>
         </li>
     {% endfor %}
 </ul>
@@ -23,9 +26,34 @@
 <a href="{{ url_for('add_equipment') }}" class="btn btn-primary">Add New Equipment</a>
 
 <!-- Add Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.delete-equipment').click(function() {
+            var equipmentId = $(this).data('id');
+            if (confirm("Are you sure you want to delete this equipment?")) {
+                $.ajax({
+                    url: "{{ url_for('delete_equipment', equipment_id=0) }}".replace('0', equipmentId),
+                    type: 'POST',
+                    success: function(response) {
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            alert("Failed to delete equipment.");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error deleting equipment:", error);
+                        alert("Failed to delete equipment.");
+                    }
+                });
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
