@@ -1,31 +1,27 @@
+<!-- filepath: /c:/Users/santi/Documents/Project/templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Equipment List</title>
-    <!-- Add Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="container">
-
-<h1 class="my-4">Available Equipment</h1>
-<ul class="list-group">
-    {% for item in equipment %}
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="{{ url_for('equipment_page', equipment_id=item.id) }}">{{ item.name }}</a>
-            <span class="badge badge-{{ 'success' if item.is_available else 'danger' }}">
-                {{ 'Available' if item.is_available else 'Not Available' }}
-            </span>
-        </li>
-    {% endfor %}
-</ul>
-<br>
-<a href="{{ url_for('add_equipment') }}" class="btn btn-primary">Add New Equipment</a>
-
-<!-- Add Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+<body>
+    <h1>Available Equipment</h1>
+    <ul>
+        {% for item in equipment %}
+            <li>
+                <a href="{{ url_for('equipment_page', equipment_id=item.id) }}">{{ item.name }}</a>
+                {% if item.is_available %}
+                    (Available)
+                {% else %}
+                    (Not Available)
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{{ url_for('add_equipment') }}">
+        <button>Add New Equipment</button>
+    </a>
 </body>
 </html>

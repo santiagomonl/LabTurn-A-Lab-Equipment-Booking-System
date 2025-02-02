@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Reserve Equipment</title>
-    <!-- Add Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Add FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.2.0/dist/fullcalendar.min.css" rel="stylesheet">
 </head>
-<body class="container">
+<body>
 
-<h2 class="my-4">Reserve Equipment: {{ equipment.name }}</h2>
+<h2>Reserve Equipment: {{ equipment.name }}</h2>
 
 <!-- Display a calendar for the equipment -->
-<div id="calendar" class="mb-4"></div>
+<div id="calendar"></div>
 
 <!-- Reservation form -->
 <form action="{{ url_for('equipment_page', equipment_id=equipment.id) }}" method="POST" id="reservation_form">
-    <div class="form-group">
-        <label for="user_name">Your Name:</label>
-        <input type="text" name="user_name" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="date">Reservation Date:</label>
-        <input type="date" name="date" class="form-control" required>
-    </div>
-    <div id="time-slots" class="form-group"></div>
-    <button type="submit" class="btn btn-primary">Reserve Selected Time Slots</button>
+    <label for="user_name">Your Name:</label>
+    <input type="text" name="user_name" required><br><br>
+
+    <label for="date">Reservation Date:</label>
+    <input type="date" name="date" required><br><br>
+
+    <div id="time-slots"></div>
+
+    <button type="submit">Reserve Selected Time Slots</button>
 </form>
 
 <!-- Script for FullCalendar and handling clicks -->
@@ -36,9 +33,6 @@
 
 <script>
     $(document).ready(function() {
-        // Log the reservations data to verify it is correctly passed
-        console.log("Reservations data:", {{ reservations|tojson }});
-
         // Initialize the calendar
         $('#calendar').fullCalendar({
             events: {{ reservations|tojson }},
@@ -72,19 +66,12 @@
         var timeSlots = {{ time_slots|tojson }};
         var timeSlotsContainer = $('#time-slots');
         timeSlots.forEach(function(slot) {
-            var checkbox = $('<input>').attr('type', 'checkbox').attr('name', 'selected_slots').val(slot.start_time + '-' + slot.end_time).addClass('form-check-input');
-            var label = $('<label>').text(slot.start_time + ' - ' + slot.end_time).addClass('form-check-label');
-            var div = $('<div>').addClass('form-check');
-            div.append(checkbox).append(label);
-            timeSlotsContainer.append(div);
+            var checkbox = $('<input>').attr('type', 'checkbox').attr('name', 'selected_slots').val(slot.start_time + '-' + slot.end_time);
+            var label = $('<label>').text(slot.start_time + ' - ' + slot.end_time);
+            timeSlotsContainer.append(checkbox).append(label).append('<br>');
         });
     });
 </script>
-
-<!-- Add Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>

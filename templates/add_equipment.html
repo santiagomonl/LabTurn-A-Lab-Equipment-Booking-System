@@ -1,33 +1,21 @@
-_equipment.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add New Equipment</title>
-    <!-- Add Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="container">
-
-<h1 class="my-4">Add New Equipment</h1>
-<form method="POST" action="{{ url_for('add_equipment') }}">
-    <div class="form-group">
+<body>
+    <h1>Add New Equipment</h1>
+    <form method="POST" action="{{ url_for('add_equipment') }}">
         <label for="name">Equipment Name:</label>
-        <input type="text" id="name" name="name" class="form-control" required>
-    </div>
-    <div class="form-group form-check">
-        <input type="checkbox" id="is_available" name="is_available" class="form-check-input">
-        <label for="is_available" class="form-check-label">Is Available</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Add Equipment</button>
-</form>
-<br>
-<a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Equipment List</a>
-
-<!-- Add Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="is_available">Is Available:</label>
+        <input type="checkbox" id="is_available" name="is_available">
+        <br>
+        <button type="submit">Add Equipment</button>
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}">Back to Equipment List</a>
 </body>
 </html>
