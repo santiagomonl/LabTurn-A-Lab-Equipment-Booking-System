@@ -35,24 +35,35 @@
     $(document).ready(function() {
         // Initialize the calendar
         $('#calendar').fullCalendar({
-            events: {{ reservations|tojson }}, // Pass reservations directly to FullCalendar
-            dayClick: function(date, jsEvent, view) {
-                let selectedDate = date.format('YYYY-MM-DD');
-                let timeSlots = {{ time_slots|tojson }};
-                let timeSlotHtml = '';
-                
-                timeSlots.forEach(slot => {
-                    timeSlotHtml += `
-                    <label>
-                        <input type="checkbox" name="selected_slots" value="${slot.start_time}-${slot.end_time}">
-                        ${slot.start_time} - ${slot.end_time}
-                    </label><br>
-                    `;
-                });
-
-                $('#time-slots').html(timeSlotHtml);
-                $('input[name="date"]').val(selectedDate);
+            events: {{ reservations|tojson }},
+            selectable: true,
+            selectHelper: true,
+            editable: true,
+            eventClick: function(event) {
+                if (confirm("Are you sure you want to delete this reservation?")) {
+                    $.ajax({
+                        url: "{{ url_for('delete_reservation', reservation_id='') }}" + event.id,
+                        type: 'POST',
+                        success: function(response) {
+                            if (response.success) {
+                                $('#calendar').fullCalendar('removeEvents', event.id);
+                                alert("Reservation deleted successfully!");
+                            } else {
+                                alert("Failed to delete reservation.");
+                            }
+                        }
+                    });
+                }
             }
+        });
+
+        // Populate available time slots
+        var timeSlots = {{ time_slots|tojson }};
+        var timeSlotsContainer = $('#time-slots');
+        timeSlots.forEach(function(slot) {
+            var checkbox = $('<input>').attr('type', 'checkbox').attr('name', 'selected_slots').val(slot.start_time + '-' + slot.end_time);
+            var label = $('<label>').text(slot.start_time + ' - ' + slot.end_time);
+            timeSlotsContainer.append(checkbox).append(label).append('<br>');
         });
     });
 </script>

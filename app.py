@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate
@@ -73,6 +73,13 @@ def equipment_page(equipment_id):
         reservations=formatted_reservations,
         time_slots=available_time_slots
     )
+
+@app.route('/delete_reservation/<int:reservation_id>', methods=['POST'])
+def delete_reservation(reservation_id):
+    reservation = Reservation.query.get_or_404(reservation_id)
+    db.session.delete(reservation)
+    db.session.commit()
+    return jsonify({'success': True})
 
 @app.route('/add-equipment', methods=['GET', 'POST'])
 def add_equipment():
