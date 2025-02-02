@@ -1,4 +1,6 @@
 # LabTurn: A Lab Equipment Booking System
+![previous_logo](https://github.com/user-attachments/assets/41fa7aed-9e84-4ca5-b3e8-152c4397d1af)
+
 ## Introduction
 The Lab Equipment Booking System is a Python-based web application designed to streamline the process of reserving laboratory equipment. This system will provide an intuitive interface for users to check equipment availability, book resources, and manage reservations efficiently. Whether you are part of an academic institution, research facility, or a shared lab environment, this program simplifies equipment management, reduces scheduling conflicts, and ensures optimal resource utilization.
 
