@@ -8,16 +8,13 @@
     <!-- Add custom CSS for the logo -->
     <style>
         .logo {
-            font-family: 'Arial', sans-serif;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #2c3e50;
             text-align: center;
             margin-top: 20px;
             margin-bottom: 20px;
         }
-        .logo span {
-            color: #112ca3;
+        .logo img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -25,7 +22,7 @@
 
 <!-- Logo -->
 <div class="logo">
-    Lab<span>Turn</span>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="LabTurn Logo">
 </div>
 
 <h1 class="my-4">Available Equipment</h1>
