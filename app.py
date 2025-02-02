@@ -79,6 +79,7 @@ def delete_reservation(reservation_id):
     reservation = Reservation.query.get_or_404(reservation_id)
     db.session.delete(reservation)
     db.session.commit()
+    app.logger.info(f"Deleted reservation with ID: {reservation_id}")  # Add logging
     return jsonify({'success': True})
 
 @app.route('/add-equipment', methods=['GET', 'POST'])
