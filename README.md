@@ -42,7 +42,7 @@ local functionality was used as a test to check the performance of the booking s
 
 Render will generate a URL that can be access on any computer and will allow remote access to book the lab equipment: [LabTurn Website](https://labturn-a-lab-equipment-booking-system.onrender.com)
 
-This intuitive online interface does not need any installation or setting on your computer. Simply access the website and the interface will load in your browser for your to start booking your lab equipment.
+**This intuitive online interface does not need any installation or setting on your computer. Simply access the website and the interface will load in your browser for your to start booking your lab equipment.**
 
 ## If run locally
 1. Need to install python on your computer
