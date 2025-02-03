@@ -28,7 +28,7 @@ The respective calendar for each piece of equipment will show:
 ## If accessed online
 local functionality was used as a test to check the performance of the booking system to continue with deploying the app online
 
-1. Create a GitHub repository with all the files require to run the app
+1. Create a GitHub repository with all the files required to run the app
 2. Login to Render
 3. Create the respective files for deploying the Labturn app on Render:
    * requirements.txt
@@ -40,7 +40,7 @@ local functionality was used as a test to check the performance of the booking s
 8. Deploy the app in Render
 9. Finally, check the app interface and functionality using the URL provided in Render
 
-Render will generate a URL that can be access on any computer and will allow remote access to book the lab equipment: [LabTurn Website](https://labturn-a-lab-equipment-booking-system.onrender.com)
+Render will generate a URL that can be accessed on any computer and will allow remote access to book the lab equipment: [LabTurn Website](https://labturn-a-lab-equipment-booking-system.onrender.com)
 
 **This intuitive online interface does not need any installation or setting on your computer. Simply access the website and the interface will load in your browser for you to start booking your lab equipment.**
 
@@ -57,7 +57,7 @@ Render will generate a URL that can be access on any computer and will allow rem
    * static
    * requirements.txt
    * Procfile.txt
-4. Change the URL in the app file as follow: 
+4. Change the URL in the app file as follows: 
 
 ```bash
 # Database Configuration
