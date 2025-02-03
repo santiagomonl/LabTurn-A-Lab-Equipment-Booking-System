@@ -24,6 +24,26 @@ The respective calendar for each piece of equipment will show:
 - The list of reservation
 
 # Technical Instruction
+
+## If accessed online
+local functionality was used as a test to check the performance of the booking system to continue with deploying the app online
+
+1. Create a GitHub repository with all the files require to run the app
+2. Login to Render
+3. Create the respective files for deploying the Labturn app on Render:
+   * requirements.txt
+   * Procfile
+4. Create the new app
+5. Set up the free online database (PostgreSQL) and provide a DATABASE_URL environment variable.
+6. Initialize the Database on Render
+7. Push the Code to Render
+8. Deploy the app in Render
+9. Finally, check the app interface and functionality using the URL provided in Render
+
+Render will generate a URL that can be access on any computer and will allow remote access to book the lab equipment: [LabTurn Website](https://labturn-a-lab-equipment-booking-system.onrender.com)
+
+This intuitive online interface does not need any installation or setting on your computer. Simply access the website and the interface will load in your browser for your to start booking your lab equipment.
+
 ## If run locally
 1. Need to install python on your computer
 2. Need to install the following libraries
@@ -37,10 +57,10 @@ The respective calendar for each piece of equipment will show:
    * static
    * requirements.txt
    * Procfile.txt
-4. Change the URL in the app file 
+4. Change the URL in the app file as follow: 
 
 ```bash
-Database Configuration
+# Database Configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///lab_equipment.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 ```
@@ -57,22 +77,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
    python app.py
    ```
 7. Finally, open the address shown in the terminal Ctrl+Click
-
-## If accessed online
-Assuming local functionality is used as a test to check the performance of the booking system we can continue to deploy the program online
-
-1. Download and install the Heroku CLI
-2. Login to Heroku
-3. Create the new app
-4. Set up the free online database (PostgreSQL) and provide a DATABASE_URL environment variable.
-5. Initialize the Database on Heroku
-6. Push Your Code to Heroku
-7. Deploy the app to Heroku
-8. Finally, check the app interface and functionality using the URL provided in Heruko
-
-Heroku will generate a URL that can be access on any computer and will allow remote access to book the lab equipment.
-
-This intuitive online interface does not need any installation or setting on your computer. Simply access the website and the interface will load in your browser for your to start booking your lab equipment.
 
 # Future Enhancements
 - Conflict Prevention: Automatically checks for overlapping bookings and notifies users of conflicts.
